@@ -1,0 +1,146 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Eirado de Bouza Rica - Blog de Permacultura" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Navigation />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--color-primary: #347928;
+		--color-secondary: #C0EBA6;
+		--color-background: #FFFBE6;
+		--color-accent: #FCCD2A;
+		--color-text: #333333;
+	}
+	
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: var(--color-background);
+		color: var(--color-text);
+	}
+	
+	body {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+	
+	main {
+		flex: 1;
+		padding: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		color: var(--color-primary);
+	}
+	
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+  .image-gallery {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide-content {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+
+  .slide-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color-primary);
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .slide-text {
+      font-size: 14px;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+    }
+  }
+</style>

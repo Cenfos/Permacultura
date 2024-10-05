@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Sobre Nosotros - Eirado de Bouza Rica">
+  <h1>Sobre Eirado de Bouza Rica</h1>
+  <p>
+    Somos un grupo de entusiastas de la permacultura dedicados a promover prácticas sostenibles
+    y respetuosas con el medio ambiente. Nuestro objetivo es educar e inspirar a otros a adoptar
+    un estilo de vida más ecológico y en armonía con la naturaleza.
+  </p>
+  
+  <h2>Nuestro Equipo</h2>
+  <div class="card-container">
+    <Card
+      href="#"
+      title="María González"
+      body="Fundadora y experta en diseño de permacultura"
+    />
+    <Card
+      href="#"
+      title="Carlos Rodríguez"
+      body="Especialista en agricultura regenerativa"
+    />
+    <Card
+      href="#"
+      title="Laura Fernández"
+      body="Educadora ambiental y coordinadora de talleres"
+    />
+  </div>
+  
+  <h2>Nuestra Misión</h2>
+  <p>
+    En Eirado de Bouza Rica, nos esforzamos por:
+  </p>
+  <ul>
+    <li>Promover los principios de la permacultura y la sostenibilidad</li>
+    <li>Ofrecer recursos educativos y prácticos para la vida ecológica</li>
+    <li>Crear una comunidad de personas comprometidas con el cuidado del planeta</li>
+    <li>Inspirar cambios positivos en la relación entre las personas y la naturaleza</li>
+  </ul>
+</Layout>
+
+<style>
+  h1, h2 {
+    color: rgb(var(--accent));
+  }
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 2rem 0;
+  }
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>

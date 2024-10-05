@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+
+// Ejemplo de posts
+const posts = [
+  {
+    title: "Introducción a la Permacultura",
+    slug: "introduccion-permacultura",
+    excerpt: "Descubre los principios básicos de la permacultura y cómo aplicarlos en tu vida diaria."
+  },
+  {
+    title: "Cómo crear un huerto urbano",
+    slug: "huerto-urbano",
+    excerpt: "Aprende a cultivar tus propios alimentos en espacios reducidos con técnicas de permacultura."
+  },
+  {
+    title: "Sistemas de captación de agua de lluvia",
+    slug: "captacion-agua-lluvia",
+    excerpt: "Explora diferentes métodos para aprovechar el agua de lluvia en tu hogar o jardín."
+  },
+  {
+    title: "Compostaje: transformando residuos en recursos",
+    slug: "compostaje-casero",
+    excerpt: "Descubre cómo crear tu propio compost y mejorar la salud de tu suelo de manera natural."
+  }
+];
+---
+
+<Layout title="Blog - Eirado de Bouza Rica">
+  <h1>Blog de Permacultura</h1>
+  <p>Explora nuestros artículos sobre permacultura, sostenibilidad y vida ecológica.</p>
+  
+  <div class="card-container">
+    {posts.map((post) => (
+      <Card
+        href={`/blog/${post.slug}`}
+        title={post.title}
+        body={post.excerpt}
+      />
+    ))}
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+</style>

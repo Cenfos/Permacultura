@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+
+const images = [
+  { src: '/images/permacultura1.jpg', alt: 'Permacultura 1', text: 'Diseño de huerto ecológico' },
+  { src: '/images/permacultura2.jpg', alt: 'Permacultura 2', text: 'Compostaje natural' },
+  { src: '/images/permacultura3.jpg', alt: 'Permacultura 3', text: 'Agroforestería' },
+  { src: '/images/permacultura4.jpg', alt: 'Permacultura 4', text: 'Bioconstrucción' },
+];
+---
+
+<Layout title="Permacultura - Eirado de Bouza Rica">
+  <h1>Permacultura en Eirado de Bouza Rica</h1>
+  
+  <ImageGallery images={images} />
+  
+  <section>
+    <h2>¿Qué es la Permacultura?</h2>
+    <p>La permacultura es un sistema de diseño que busca crear entornos sostenibles y autosuficientes imitando los patrones de la naturaleza. Su objetivo es integrar el ser humano con el medio ambiente de forma armónica, diseñando sistemas agrícolas, arquitectónicos y sociales que promuevan la regeneración de la tierra y el uso eficiente de los recursos.</p>
+  </section>
+  
+  <section>
+    <h2>Principios de la Permacultura</h2>
+    <ul>
+      <li><strong>Cuidado de la Tierra:</strong> El bienestar del planeta es esencial. La permacultura busca restaurar y cuidar los ecosistemas naturales, asegurando su regeneración y biodiversidad.</li>
+      <li><strong>Cuidado de las Personas:</strong> Se trata de satisfacer las necesidades humanas de manera sostenible, sin explotar los recursos naturales ni a otras personas.</li>
+      <li><strong>Reparto Justo:</strong> La permacultura promueve el reparto equitativo de los recursos, reconociendo los límites del consumo y apoyando el regreso de los excedentes a la tierra.</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>¿Qué podemos hacer en Eirado de Bouza Rica?</h2>
+    <p>En Eirado de Bouza Rica, nos dedicamos a fomentar y aprender sobre permacultura a través de la experiencia práctica y teórica en nuestra finca. Ofrecemos un espacio para explorar, aprender y poner en práctica los principios de la permacultura mediante actividades y cursos en terreno.</p>
+  </section>
+  
+  <section>
+    <h2>Actividades en la Finca</h2>
+    <ul>
+      <li><strong>Cursos de Diseño en Permacultura</strong></li>
+      <li><strong>Horticultura y Agricultura Regenerativa</strong></li>
+      <li><strong>Agroforestería y Bosques Comestibles</strong></li>
+      <li><strong>Gestión del Agua</strong></li>
+      <li><strong>Bioconstrucción y Arquitectura Sostenible</strong></li>
+      <li><strong>Compostaje y Cuidado del Suelo</strong></li>
+      <li><strong>Gestión de Residuos</strong></li>
+      <li><strong>Cuidado de Animales en Sistemas Sostenibles</strong></li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Nuestro Compromiso</h2>
+    <p>En Eirado de Bouza Rica, creemos que la permacultura no solo es una forma de cultivar alimentos o construir hogares, sino una manera de vivir en equilibrio con la naturaleza. A través de nuestros cursos y actividades, nos dedicamos a enseñar y practicar soluciones sostenibles que pueden aplicarse tanto a nivel personal como comunitario.</p>
+    <p>Nuestra finca está abierta a todos aquellos que deseen aprender, compartir y formar parte de esta comunidad de transformación. Ya seas un agricultor experimentado, un urbanita curioso, o alguien interesado en encontrar un modo de vida más sostenible, te invitamos a unirte a nosotros en este viaje hacia la regeneración y la autosuficiencia.</p>
+  </section>
+</Layout>
+
+<style>
+  h1, h2 {
+    color: var(--color-primary);
+  }
+  section {
+    margin-bottom: 2rem;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  strong {
+    color: var(--color-primary);
+  }
+</style>

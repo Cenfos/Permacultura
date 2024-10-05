@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const images = [
+  { src: '/images/permacultura1.jpg', alt: 'Huerto ecológico', caption: 'Nuestro huerto ecológico en pleno crecimiento' },
+  { src: '/images/permacultura2.jpg', alt: 'Compostaje', caption: 'Sistema de compostaje natural' },
+  { src: '/images/permacultura3.jpg', alt: 'Agroforestería', caption: 'Proyecto de agroforestería en desarrollo' },
+  { src: '/images/permacultura4.jpg', alt: 'Bioconstrucción', caption: 'Casa construida con técnicas de bioconstrucción' },
+  { src: '/images/permacultura5.jpg', alt: 'Cultivo en terrazas', caption: 'Cultivo en terrazas para aprovechar el espacio' },
+  { src: '/images/permacultura6.jpg', alt: 'Estanque natural', caption: 'Estanque natural para la gestión del agua' },
+];
+---
+
+<Layout title="Galería de Fotos - Eirado de Bouza Rica">
+  <h1>Galería de Fotos</h1>
+  <div class="gallery">
+    {images.map((image) => (
+      <figure class="gallery-item">
+        <img src={image.src} alt={image.alt} />
+        <figcaption>{image.caption}</figcaption>
+      </figure>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  figcaption {
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+  }
+</style>

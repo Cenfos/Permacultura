@@ -1,0 +1,56 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="/politica-privacidad">Política de Privacidad</a>
+      <a href="/aviso-legal">Aviso Legal</a>
+      <a href="/politica-cookies">Política de Cookies</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/galeria">Galería de Fotos</a>
+    </div>
+    <p>&copy; {currentYear} Eirado de Bouza Rica. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 2rem 0;
+    margin-top: 2rem;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .footer-links a {
+    color: var(--color-background);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+  p {
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

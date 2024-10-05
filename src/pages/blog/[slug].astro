@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    {params: {slug: 'introduccion-permacultura'}},
+    {params: {slug: 'huerto-urbano'}},
+    {params: {slug: 'captacion-agua-lluvia'}},
+    {params: {slug: 'compostaje-casero'}},
+  ];
+}
+
+const { slug } = Astro.params;
+
+// Simulamos el contenido de los posts
+const posts = {
+  'introduccion-permacultura': {
+    title: 'Introducción a la Permacultura',
+    content: 'La permacultura es un sistema de diseño para la creación de entornos humanos sostenibles...'
+  },
+  'huerto-urbano': {
+    title: 'Cómo crear un huerto urbano',
+    content: 'Crear un huerto urbano es una excelente manera de producir alimentos frescos y saludables...'
+  },
+  'captacion-agua-lluvia': {
+    title: 'Sistemas de captación de agua de lluvia',
+    content: 'La captación de agua de lluvia es una práctica ancestral que está ganando popularidad...'
+  },
+  'compostaje-casero': {
+    title: 'Compostaje: transformando residuos en recursos',
+    content: 'El compostaje es un proceso natural que convierte los residuos orgánicos en un valioso fertilizante...'
+  }
+};
+
+const post = posts[slug];
+---
+
+<Layout title={post.title}>
+  <article>
+    <h1>{post.title}</h1>
+    <p>{post.content}</p>
+  </article>
+</Layout>
+
+<style>
+  article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+</style>

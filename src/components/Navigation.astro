@@ -1,0 +1,62 @@
+---
+---
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.svg" alt="Eirado de Bouza Rica Logo" width="50" height="50">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/blog">Blog</a>
+      <a href="/permacultura">Permacultura</a>
+      <a href="/about">Sobre Nosotros</a>
+    </div>
+    <div class="contact-link">
+      <a href="/contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    background-color: var(--color-primary);
+    padding: 1rem;
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo img {
+    vertical-align: middle;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  .nav-links a, .contact-link a {
+    color: var(--color-background);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  .nav-links a:hover, .contact-link a:hover {
+    color: var(--color-accent);
+  }
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-links, .contact-link {
+      margin-top: 1rem;
+    }
+    .nav-links {
+      flex-direction: column;
+    }
+  }
+</style>

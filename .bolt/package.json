@@ -1,0 +1,29 @@
+{
+  "name": "eirado-de-bouza-rica",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.6.2",
+    "@tinacms/app": "^2.1.0",
+    "@tinacms/cli": "^1.6.0",
+    "@tinacms/graphql": "^1.5.0",
+    "astro": "^3.0.0",
+    "cookie": "^0.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "swiper": "^10.1.0",
+    "tinacms": "^2.3.0"
+  },
+  "overrides": {
+    "cookie": "^0.7.1",
+    "lodash": "^4.17.21",
+    "micromatch": "^4.0.8",
+    "rollup": "^2.79.2"
+  }
+}
+    

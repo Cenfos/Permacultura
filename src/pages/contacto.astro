@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contacto - Eirado de Bouza Rica">
+  <h1>Contacto</h1>
+  <p>Estamos encantados de atender tus consultas. Puedes contactarnos a través de los siguientes medios:</p>
+  
+  <div class="contact-info">
+    <p><strong>Correo electrónico:</strong> info@eiradodebouzarica.com</p>
+    <p><strong>Teléfono:</strong> +34 123 456 789</p>
+  </div>
+  
+  <h2>Formulario de contacto</h2>
+  <ContactForm />
+</Layout>
+
+<style>
+  h1, h2 {
+    color: rgb(var(--accent));
+  }
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+</style>
