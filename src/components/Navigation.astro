@@ -1,13 +1,20 @@
 ---
+import '../styles/global.css';
 ---
+
 <nav>
   <div class="nav-container">
     <div class="logo">
-      <a href="/">
-        <img src="/images/logo.svg" alt="Eirado de Bouza Rica Logo" width="50" height="50">
+      <a href="./">
+        <img src="/images/logos/Permacultura_transparent-.png" alt="Eirado de Bouza Rica Logo" width="50" height="50">
       </a>
     </div>
-    <div class="nav-links">
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
       <a href="/">Inicio</a>
       <a href="/blog">Blog</a>
       <a href="/permacultura">Permacultura</a>
@@ -19,44 +26,73 @@
   </div>
 </nav>
 
-<style>
-  nav {
-    background-color: var(--color-primary);
-    padding: 1rem;
-  }
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+</script>
+
+<style is:global>
   .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
   }
-  .logo img {
-    vertical-align: middle;
-  }
+
   .nav-links {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
   }
-  .nav-links a, .contact-link a {
-    color: var(--color-background);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
   }
-  .nav-links a:hover, .contact-link a:hover {
-    color: var(--color-accent);
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
   }
+
   @media (max-width: 768px) {
-    .nav-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .nav-links, .contact-link {
-      margin-top: 1rem;
-    }
     .nav-links {
+      display: none;
       flex-direction: column;
+      position: relative;
+      top: 15px;
+      right: 0;
+      background-color: ##333333;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
   }
 </style>
+

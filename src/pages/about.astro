@@ -5,10 +5,16 @@ import Card from '../components/Card.astro';
 
 <Layout title="Sobre Nosotros - Eirado de Bouza Rica">
   <h1>Sobre Eirado de Bouza Rica</h1>
-  <p>
-    Somos un grupo de entusiastas de la permacultura dedicados a promover prácticas sostenibles
-    y respetuosas con el medio ambiente. Nuestro objetivo es educar e inspirar a otros a adoptar
-    un estilo de vida más ecológico y en armonía con la naturaleza.
+  <p class="main-paragraph">
+    Eirado de Bouza Rica es una finca familiar situada en Pontecaldelas (Pontevedra, España) en la que buscamos la autosustentabilidad y la integración respetuosa con el entorno natural.
+    <br /><br />
+    Para ello utilizamos el sistema de diseño denominado Permacultura, centrado en torno a tres principios éticos: el cuidado de las personas, el cuidado de la tierra, y el manejo adecuado de la abundancia.
+    <br /><br />
+    En este momento y tras haber realizado una primera aproximación de diseño, nuestro proyecto se encuentra en una fase inicial de implantación. Estamos creando un sistema básico de acumulación y manejo del agua, abriendo accesos a las distintas áreas y estableciendo las primeras estructuras que nos den soporte para las siguientes fases. Estamos realizando también un importante trabajo de acumulación de fertilidad (materia orgánica, microorganismos y minerales) en el suelo basándonos en técnicas como la agricultura sintrópica, la generación de compost in situ y la aplicación de biopreparados, entre otros.
+    <br /><br />
+    Si deseas visitarnos, llámanos o envía un whatsapp al 675808064 para concertar una cita, estaremos encantados de conocerte.
+    <br /><br />
+    ¿Buscas otros centros de permacultura en Galicia? Echa un vistazo al directorio <a href="http://www.permaculturagalicia.com/" target="_blank">Permacultura Galicia</a>
   </p>
   
   <h2>Nuestro Equipo</h2>
@@ -46,20 +52,34 @@ import Card from '../components/Card.astro';
   h1, h2 {
     color: rgb(var(--accent));
   }
-  p {
+
+  .main-paragraph {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color de texto más oscuro para mejor legibilidad */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
   .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin: 2rem 0;
   }
+
   ul {
     margin-left: 1.5rem;
     margin-bottom: 2rem;
   }
+
   li {
     margin-bottom: 0.5rem;
   }

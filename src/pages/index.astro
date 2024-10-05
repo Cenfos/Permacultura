@@ -11,7 +11,7 @@ import Card from '../components/Card.astro';
     que beneficien tanto a las personas como al planeta.
   </p>
   
-  <ImageGallery client:load />
+  <ImageGallery client:load images={[]} />
   
   <h2>Últimos artículos</h2>
   <div class="card-container">
@@ -32,6 +32,7 @@ import Card from '../components/Card.astro';
     />
   </div>
 </Layout>
+</Layout>
 
 <style>
   h1 {
@@ -41,13 +42,7 @@ import Card from '../components/Card.astro';
     text-align: center;
     margin-bottom: 1em;
   }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
+  
   p {
     margin-bottom: 2rem;
     font-size: 1.1rem;

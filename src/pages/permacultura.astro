@@ -1,19 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ImageGallery from '../components/ImageGallery.astro';
+import ImageGallery from '../components/ImageGallery.jsx';
 
 const images = [
-  { src: '/images/permacultura1.jpg', alt: 'Permacultura 1', text: 'Diseño de huerto ecológico' },
-  { src: '/images/permacultura2.jpg', alt: 'Permacultura 2', text: 'Compostaje natural' },
-  { src: '/images/permacultura3.jpg', alt: 'Permacultura 3', text: 'Agroforestería' },
-  { src: '/images/permacultura4.jpg', alt: 'Permacultura 4', text: 'Bioconstrucción' },
+  { src: '/images/Permacultura1.jpg', alt: 'Permacultura 1', text: 'Diseño de huerto ecológico' },
+  { src: '/images/Permacultura2.jpg', alt: 'Permacultura 2', text: 'Compostaje natural' },
+  { src: '/images/Permacultura3.jpg', alt: 'Permacultura 3', text: 'Agroforestería' },
+  { src: '/images/Permacultura4.jpg', alt: 'Permacultura 4', text: 'Bioconstrucción' },
 ];
 ---
 
 <Layout title="Permacultura - Eirado de Bouza Rica">
   <h1>Permacultura en Eirado de Bouza Rica</h1>
   
-  <ImageGallery images={images} />
+  <ImageGallery client:load images={images} />
   
   <section>
     <h2>¿Qué es la Permacultura?</h2>
