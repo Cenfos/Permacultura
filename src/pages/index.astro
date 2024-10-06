@@ -11,7 +11,16 @@ import Card from '../components/Card.astro';
     que beneficien tanto a las personas como al planeta.
   </p>
   
-  <ImageGallery client:load images={[]} />
+  <ImageGallery client:load images={[
+    { src: '/images/Permacultura1.jpg', alt: 'Permacultura 1', text: 'Diseño de huerto ecológico' },
+    { src: '/images/Permacultura2.jpg', alt: 'Permacultura 2', text: 'Compostaje natural' },
+    { src: '/images/Permacultura3.jpg', alt: 'Permacultura 3', text: 'Agroforestería' },
+    { src: '/images/Permacultura4.jpg', alt: 'Permacultura 4', text: 'Bioconstrucción' },
+    { src: '/images/RioVerdugo.jpg', alt: 'Rio Verdugo', text: 'Espacio cercano al Rio Verdugo, con una ruta de senderismo' },
+    { src: '/images/RioVerdugo2.jpg', alt: 'Rio Verdugo2', text: 'Otra vista de la ruta de senderismo por el Verdugo' },
+    { src: '/images/RioVerdugo3.jpg', alt: 'Rio Verdugo3', text: 'Otra vista de la ruta de senderismo por el Verdugo' },
+    { src: '/images/RioVerdugo4.jpg', alt: 'Rio Verdugo4', text: 'Otra vista de la ruta de senderismo por el Verdugo' },
+  ]} />
   
   <h2>Últimos artículos</h2>
   <div class="card-container">
@@ -32,7 +41,7 @@ import Card from '../components/Card.astro';
     />
   </div>
 </Layout>
-</Layout>
+
 
 <style>
   h1 {

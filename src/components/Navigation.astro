@@ -6,7 +6,7 @@ import '../styles/global.css';
   <div class="nav-container">
     <div class="logo">
       <a href="./">
-        <img src="/images/logos/Permacultura_transparent-.png" alt="Eirado de Bouza Rica Logo" width="50" height="50">
+        <img src="/images/logos/Permacultura_transparent-.png" alt="Eirado de Bouza Rica Logo" width="50" height="50" />
       </a>
     </div>
     <div class="hamburger" id="hamburger">
@@ -25,6 +25,7 @@ import '../styles/global.css';
     </div>
   </div>
 </nav>
+</nav>
 
 <script>
   const hamburger = document.getElementById('hamburger');
@@ -35,64 +36,3 @@ import '../styles/global.css';
     hamburger.classList.toggle('active');
   });
 </script>
-
-<style is:global>
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: relative;
-      top: 15px;
-      right: 0;
-      background-color: ##333333;
-      width: 100%;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-  }
-</style>
-
