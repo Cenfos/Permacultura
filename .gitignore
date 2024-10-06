@@ -26,3 +26,5 @@ pnpm-debug.log*
 # gitignore para la carpeta de configuración de vscode
 .vscode/
 
+
+node_modules
