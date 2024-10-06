@@ -3,24 +3,38 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts'); // Asegúrate de que 'posts' es el nombre de tu colección en Tina
+  const posts = await getCollection('posts'); // Verifica que esta línea obtiene la colección correcta
   return posts.map(post => ({
-    params: { slug: post.slug }, // Asegúrate de que 'slug' es el nombre del campo en tu colección
+    params: { slug: post.slug },
   }));
 }
 
 const { slug } = Astro.params;
-const posts = await getCollection('posts'); // Nuevamente, obtener la colección de TinaCMS
+const posts = await getCollection('posts'); // Verifica que esta línea obtiene correctamente los posts
 
 const post = posts.find(p => p.slug === slug);
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
 ---
 
 <Layout title={post.title}>
   <article>
     <h1>{post.title}</h1>
-    <p>{post.body}</p> <!-- Asegúrate de que 'body' es el campo correcto para el contenido -->
+    <p>{post.body}</p>
   </article>
 </Layout>
+
+<style>
+  article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+</style>
 
 <style>
   article {
