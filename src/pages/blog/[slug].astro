@@ -1,44 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-export function getStaticPaths() {
-  return [
-    {params: {slug: 'introduccion-permacultura'}},
-    {params: {slug: 'huerto-urbano'}},
-    {params: {slug: 'captacion-agua-lluvia'}},
-    {params: {slug: 'compostaje-casero'}},
-  ];
+export async function getStaticPaths() {
+  const posts = await getCollection('posts'); // Asegúrate de que 'posts' es el nombre de tu colección en Tina
+  return posts.map(post => ({
+    params: { slug: post.slug }, // Asegúrate de que 'slug' es el nombre del campo en tu colección
+  }));
 }
 
 const { slug } = Astro.params;
+const posts = await getCollection('posts'); // Nuevamente, obtener la colección de TinaCMS
 
-// Simulamos el contenido de los posts
-const posts = {
-  'introduccion-permacultura': {
-    title: 'Introducción a la Permacultura',
-    content: 'La permacultura es un sistema de diseño para la creación de entornos humanos sostenibles...'
-  },
-  'huerto-urbano': {
-    title: 'Cómo crear un huerto urbano',
-    content: 'Crear un huerto urbano es una excelente manera de producir alimentos frescos y saludables...'
-  },
-  'captacion-agua-lluvia': {
-    title: 'Sistemas de captación de agua de lluvia',
-    content: 'La captación de agua de lluvia es una práctica ancestral que está ganando popularidad...'
-  },
-  'compostaje-casero': {
-    title: 'Compostaje: transformando residuos en recursos',
-    content: 'El compostaje es un proceso natural que convierte los residuos orgánicos en un valioso fertilizante...'
-  }
-};
-
-const post = posts[slug];
+const post = posts.find(p => p.slug === slug);
 ---
 
 <Layout title={post.title}>
   <article>
     <h1>{post.title}</h1>
-    <p>{post.content}</p>
+    <p>{post.body}</p> <!-- Asegúrate de que 'body' es el campo correcto para el contenido -->
   </article>
 </Layout>
 
