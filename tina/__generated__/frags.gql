@@ -1,5 +1,7 @@
-fragment PostParts on Post {
+fragment PostsParts on Posts {
   __typename
   title
+  slug
+  date
   body
 }

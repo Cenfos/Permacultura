@@ -2,19 +2,32 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+interface Post {
+  title: string;
+  slug: string;
+  description?: string;
+  date: string;
+  body: string;
+}
+
+// Función getStaticPaths que define las rutas dinámicas basadas en el slug
 export async function getStaticPaths() {
-  const posts = await getCollection('posts'); // Verifica que esta línea obtiene la colección correcta
-  return posts.map(post => ({
-    params: { slug: post.slug },
+  const posts = await getCollection('posts');  // Obtiene los posts de la colección 'posts'
+  
+  return posts.map((post) => ({
+    params: { slug: post.slug },  // Define las rutas usando los slugs de cada post
   }));
 }
 
+// Obtén el slug desde los parámetros de la URL
 const { slug } = Astro.params;
-const posts = await getCollection('posts'); // Verifica que esta línea obtiene correctamente los posts
 
-const post = posts.find(p => p.slug === slug);
+// Obtener los posts de la colección
+const posts = await getCollection('posts');
+const post = posts.find((p) => p.slug === slug);  // Buscar el post que coincida con el slug
+
 if (!post) {
-  throw new Error(`Post not found for slug: ${slug}`);
+  throw new Error(`No se encontró el post con el slug: ${slug}`);
 }
 ---
 
@@ -24,17 +37,6 @@ if (!post) {
     <p>{post.body}</p>
   </article>
 </Layout>
-
-<style>
-  article {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  h1 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-</style>
 
 <style>
   article {

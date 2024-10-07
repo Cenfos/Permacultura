@@ -3,40 +3,65 @@ import { defineConfig } from "tinacms";
 var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
   branch,
-  // Get this from tina.io
+  // ID del cliente de TinaCMS
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
+  // Asegúrate de que esté configurado en el entorno
   token: process.env.TINA_TOKEN,
+  // Asegúrate de que esté configurado en el entorno
   build: {
     outputFolder: "admin",
+    // Carpeta donde se generará la interfaz de administración
     publicFolder: "public"
+    // Carpeta pública para recursos
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "../../public/images",
+      // Establece la raíz de los medios si es necesario
       publicFolder: "public"
+      // Carpeta pública para los medios
     }
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
+  // Configuración del esquema de contenido
   schema: {
     collections: [
       {
-        name: "post",
+        name: "posts",
+        // Este nombre debe coincidir con lo que usas en getCollection
         label: "Posts",
+        // Nombre que se mostrará en la interfaz de administración
         path: "content/posts",
+        // Ruta donde se almacenarán los archivos de contenido
         fields: [
           {
             type: "string",
             name: "title",
             label: "Title",
             isTitle: true,
+            // Define este campo como el título principal
             required: true
+            // Este campo es obligatorio
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "Slug",
+            required: true
+            // Este campo es obligatorio
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true
+            // Este campo es obligatorio
           },
           {
             type: "rich-text",
             name: "body",
             label: "Body",
             isBody: true
+            // Define este campo como el cuerpo del post
           }
         ]
       }

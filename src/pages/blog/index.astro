@@ -3,7 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 
 // Cargar todos los archivos de contenido de posts
-const posts = await Astro.glob('../../content/posts/*.md');
+
+const posts = await Astro.glob('/content/posts/*.md');
+
+console.log(posts); // Verifica si se están listando los posts
+
+
+
 ---
 
 <Layout title="Blog - Eirado de Bouza Rica">

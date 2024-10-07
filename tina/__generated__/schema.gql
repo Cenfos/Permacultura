@@ -53,12 +53,12 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
+  posts(relativePath: String): Posts!
+  postsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostsFilter): PostsConnection!
 }
 
 input DocumentFilter {
-  post: PostFilter
+  posts: PostsFilter
 }
 
 type DocumentConnectionEdges {
@@ -84,10 +84,12 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Post | Folder
+union DocumentNode = Posts | Folder
 
-type Post implements Node & Document {
+type Posts implements Node & Document {
   title: String!
+  slug: String!
+  date: String!
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -101,26 +103,36 @@ input StringFilter {
   in: [String]
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
 input RichTextFilter {
   startsWith: String
   eq: String
   exists: Boolean
 }
 
-input PostFilter {
+input PostsFilter {
   title: StringFilter
+  slug: StringFilter
+  date: DatetimeFilter
   body: RichTextFilter
 }
 
-type PostConnectionEdges {
+type PostsConnectionEdges {
   cursor: String!
-  node: Post
+  node: Posts
 }
 
-type PostConnection implements Connection {
+type PostsConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [PostConnectionEdges]
+  edges: [PostsConnectionEdges]
 }
 
 type Mutation {
@@ -129,21 +141,23 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
-  updatePost(relativePath: String!, params: PostMutation!): Post!
-  createPost(relativePath: String!, params: PostMutation!): Post!
+  updatePosts(relativePath: String!, params: PostsMutation!): Posts!
+  createPosts(relativePath: String!, params: PostsMutation!): Posts!
 }
 
 input DocumentUpdateMutation {
-  post: PostMutation
+  posts: PostsMutation
   relativePath: String
 }
 
 input DocumentMutation {
-  post: PostMutation
+  posts: PostsMutation
 }
 
-input PostMutation {
+input PostsMutation {
   title: String
+  slug: String
+  date: String
   body: JSON
 }
 
